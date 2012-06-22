@@ -8,4 +8,7 @@ import hudson.model.PageDecorator;
  */
 @Extension
 public class PageDecoratorImpl extends PageDecorator {
+    public PageDecoratorImpl() {
+        super(PageDecoratorImpl.class);
+    }
 }
