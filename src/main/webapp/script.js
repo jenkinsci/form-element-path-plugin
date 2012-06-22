@@ -196,4 +196,7 @@ Behaviour.addLoadEvent(function(){
     if (typeof(layoutUpdateCallback)!="undefined") {
         layoutUpdateCallback.add(applyAll)
     }
+
+    // expose this globally so that Selenium can call it
+    window.recomputeFormElementPath = applyAll;
 });
