@@ -1,18 +1,41 @@
-Behaviour.list.unshift({
+
+(function() {
+    function pack(n,v) {
+        var o = {};
+        o[n] = v;
+        return o;
+    }
+
+    function pre(selector,behavior) {
+        if (Behaviour.specify) {
+            Behaviour.specify(selector,"form-element-path",-200,behavior);
+        } else {
+            Behaviour.list.unshift(pack(selector,behavior));
+        }
+    }
+
+    function post(selector,behavior) {
+        if (Behaviour.specify) {
+            Behaviour.specify(selector,"form-element-path",200,behavior);
+        } else {
+            Behaviour.list.shift(pack(selector,behavior));
+        }
+    }
+
+
     // patch hetero-list-container handling to capture name before hudson-behavior.js kicks in (for Jenkins < 1.473)
-    ".hetero-list-container" : function(e) {
+    pre(".hetero-list-container", function(e) {
         var proto = $(e).down("DIV.prototypes");
         var d = proto.down();
         proto.next().setAttribute('suffix',d.getAttribute("name"));
-    }
-});
-Behaviour.list.push({
+    });
+
     // then post process to add @suffix to the button
-    ".hetero-list-container" : function(e) {
+    post(".hetero-list-container", function(e) {
         var b = $(e.lastChild);
         b.getElementsByTagName("button")[0].setAttribute("suffix", b.getAttribute("suffix"));
-    }
-});
+    });
+})();
 
 Behaviour.addLoadEvent(function(){
     function buildFormTree(form) {
