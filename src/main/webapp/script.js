@@ -23,17 +23,23 @@
     }
 
 
-    // patch hetero-list-container handling to capture name before hudson-behavior.js kicks in (for Jenkins < 1.473)
+    // patch hetero-list-container handling to capture name before hudson-behavior.js kicks in
+    // in Jenkins 1.473 and newer the suffix is already set in hetero-list.js
     pre(".hetero-list-container", function(e) {
         var proto = $(e).down("DIV.prototypes");
         var d = proto.down();
-        proto.next().setAttribute('suffix',d.getAttribute("name"));
+        if (!proto.next().hasAttribute('suffix')) {
+            proto.next().setAttribute('suffix',d.getAttribute("name"));
+        }
     });
 
     // then post process to add @suffix to the button
     post(".hetero-list-container", function(e) {
         var b = $(e.lastChild);
-        b.getElementsByTagName("button")[0].setAttribute("suffix", b.getAttribute("suffix"));
+        var button = b.getElementsByTagName("button")[0]
+        if (!button.hasAttribute('suffix')) {
+            button.setAttribute("suffix", b.getAttribute("suffix"));
+        }
     });
 })();
 
