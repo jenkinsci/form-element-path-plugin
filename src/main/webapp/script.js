@@ -114,7 +114,7 @@ Behaviour.addLoadEvent(function(){
 
                     if (name==null) {
                         s = s.parentNode.previousSibling;
-                        if (s!=null && $(s).hasClassName('repeatable-insertion-point'))
+                        if (s!=null && !(s instanceof Text) && $(s).hasClassName('repeatable-insertion-point'))
                             name = "hetero-list-add";
                     }
                 }
