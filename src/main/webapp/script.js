@@ -148,19 +148,9 @@ Behaviour.addLoadEvent(function(){
                 // @enctype is the standard, but IE needs @encoding.
                 form.enctype = form.encoding = "multipart/form-data";
                 break;
-            case "radio":
-                while (e.name.substring(0,8)=='removeme')
-                    e.name = e.name.substring(e.name.indexOf('_',8)+1);
-                if(e.groupingNode) {
-                    p = findParent(e);
-                    e.formDom = {};
-                    addProperty(p, e.name, e);
-                    break;
-                }
-
                 // otherwise fall through
             default:
-                p = findParent(e);
+                p = findParent(e);               
                 addProperty(p, e.name, e);
                 break;
             }
@@ -174,9 +164,12 @@ Behaviour.addLoadEvent(function(){
 
                 function child(v,i) {
                     var suffix=null;
-                    if (v.getAttribute("type")=="radio")
+                    var newKey=key;
+                    if (v.getAttribute("type")=="radio"){
                         suffix = v.value
-                    else
+                        while (newKey.substring(0,8)=='removeme')
+                            newKey = newKey.substring(newKey.indexOf('_',8)+1);
+                    }else
                     if (v.getAttribute("suffix")!=null) {
                         suffix = v.getAttribute("suffix")
                     } else {
@@ -186,7 +179,7 @@ Behaviour.addLoadEvent(function(){
                     if (suffix==null)   suffix="";
                     else                suffix='['+suffix+']';
 
-                    annotate(v,path+"/"+key+suffix);
+                    annotate(v,path+"/"+newKey+suffix);
                 }
 
                 if (v instanceof Array) {
