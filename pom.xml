@@ -10,6 +10,9 @@
   <artifactId>form-element-path</artifactId>
   <version>1.5-SNAPSHOT</version>
   <packaging>hpi</packaging>
+  <name>Form element path plugin</name>
+  <description>Introduce unique path attributes for UI controls to facilitate Jenkins UI testing.</description>
+  <url>https://wiki.jenkins-ci.org/display/JENKINS/Form+Element+Path+Plugin</url>
 
   <!-- get every artifact through repo.jenkins-ci.org, which proxies all the artifacts that we need -->
   <repositories>
