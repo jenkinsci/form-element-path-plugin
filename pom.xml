@@ -3,16 +3,20 @@
   <parent>
     <groupId>org.jenkins-ci.plugins</groupId>
     <artifactId>plugin</artifactId>
-    <version>1.424</version><!-- which version of Jenkins is this plugin built against? -->
+    <version>2.11</version>
   </parent>
 
-  <groupId>org.jenkins-ci.plugins</groupId>
   <artifactId>form-element-path</artifactId>
   <version>1.6-SNAPSHOT</version>
   <packaging>hpi</packaging>
   <name>Form element path plugin</name>
   <description>Introduce unique path attributes for UI controls to facilitate Jenkins UI testing.</description>
   <url>https://wiki.jenkins-ci.org/display/JENKINS/Form+Element+Path+Plugin</url>
+
+  <properties>
+    <jenkins.version>1.609.3</jenkins.version>
+    <java.level>6</java.level>
+  </properties>
 
   <!-- get every artifact through repo.jenkins-ci.org, which proxies all the artifacts that we need -->
   <repositories>
