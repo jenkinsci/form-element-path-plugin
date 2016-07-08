@@ -1,3 +1,4 @@
+<?jelly escape-by-default='true'?>
 <div>
   Adds Path designators to form elements to simplify Selenium testing of Jenkins.
 </div>
