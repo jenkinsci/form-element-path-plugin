@@ -165,7 +165,9 @@ Behaviour.addLoadEvent(function(){
                 function child(v,i) {
                     var suffix=null;
                     var newKey=key;
-                    if (v.getAttribute("type")=="radio"){
+                    if (v.getAttribute("name")=="publisher") {
+                        suffix = v.getAttribute("descriptorId").split(".").pop()
+                    } else if (v.getAttribute("type")=="radio"){
                         suffix = v.value
                         while (newKey.substring(0,8)=='removeme')
                             newKey = newKey.substring(newKey.indexOf('_',8)+1);
