@@ -124,6 +124,7 @@ Behaviour.addLoadEvent(function(){
             case "submit":
                 break;
             case "checkbox":
+            case "radio":
                 p = findParent(e);
                 if(e.groupingNode) {
                     e.formDom = {};
