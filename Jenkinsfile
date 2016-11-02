@@ -27,9 +27,7 @@ node('hi-speed') {
             ])
             wrap([$class: 'Xvnc', takeScreenshot: false, useXauthority: true]) {
                 withMaven(jdk: 'Oracle JDK 8 (latest)',
-                        maven: 'Maven 3.2.1',
-                        mavenSettingsConfig: 'org.jenkinsci.plugins.configfiles.maven.MavenSettingsConfig1382087369423',
-                        mavenSettingsFilePath: 'settings.xml') {
+                        maven: 'Maven 3.2.1') {
                     withEnv(['BROWSER=firefox',
                              'JENKINS_WAR=jenkins.war',
                              'JENKINS_JAVA_HOME=/opt/jdk/jdk1.7.latest/',
