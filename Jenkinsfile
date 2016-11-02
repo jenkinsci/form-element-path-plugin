@@ -5,9 +5,7 @@ node('hi-speed') {
             checkout scm
             timeout(30) {
                 withMaven(jdk: 'Oracle JDK 1.8 (latest)',
-                        maven: 'Maven 3.2.1',
-                        mavenSettingsConfig: 'org.jenkinsci.plugins.configfiles.maven.MavenSettingsConfig1382087369423',
-                        mavenSettingsFilePath: 'settings.xml') {
+                        maven: 'Maven 3.2.1') {
                     sh 'mvn clean install -B'
                     formElementPathVersion = sh script: 'cat target/form-element-path/META-INF/MANIFEST.MF | grep Implementation-Version | cut -f 2 -d ":" | xargs', returnStdout: true
                 }
