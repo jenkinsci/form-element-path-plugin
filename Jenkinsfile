@@ -14,7 +14,7 @@ node('hi-speed') {
     }
     dir('ath') {
         stage('Acceptance Tests') {
-            git branch: 'JENKINS-38928', changelog: false, poll: false, url: 'git@github.com:Vlatombe/acceptance-test-harness.git'
+            git changelog: false, poll: false, url: 'git@github.com:jenkinsci/acceptance-test-harness.git'
             step([$class: 'CopyArtifact',
                   filter: 'war/target/jenkins.war',
                   fingerprintArtifacts: true,
