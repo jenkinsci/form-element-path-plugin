@@ -11,7 +11,7 @@
   <version>1.9-SNAPSHOT</version>
   <packaging>hpi</packaging>
   <name>Form element path plugin</name>
-  <description>Introduce unique path attributes for UI controls to facilitate Jenkins UI testing.</description>
+  <description>Adds Path designators to form elements to simplify Selenium testing of Jenkins.</description>
   <url>https://wiki.jenkins.io/display/JENKINS/Form+Element+Path+Plugin</url>
 
   <properties>
