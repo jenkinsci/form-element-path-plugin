@@ -3,40 +3,41 @@
   <parent>
     <groupId>org.jenkins-ci.plugins</groupId>
     <artifactId>plugin</artifactId>
-    <version>2.11</version>
+    <version>3.43</version>
+    <relativePath />
   </parent>
 
   <artifactId>form-element-path</artifactId>
   <version>1.9-SNAPSHOT</version>
   <packaging>hpi</packaging>
   <name>Form element path plugin</name>
-  <description>Introduce unique path attributes for UI controls to facilitate Jenkins UI testing.</description>
-  <url>https://wiki.jenkins-ci.org/display/JENKINS/Form+Element+Path+Plugin</url>
+  <description>Adds Path designators to form elements to simplify Selenium testing of Jenkins.</description>
+  <url>https://wiki.jenkins.io/display/JENKINS/Form+Element+Path+Plugin</url>
 
   <properties>
-    <jenkins.version>1.580</jenkins.version>
-    <java.level>6</java.level>
+    <jenkins.version>2.176.1</jenkins.version>
+    <java.level>8</java.level>
   </properties>
 
   <!-- get every artifact through repo.jenkins-ci.org, which proxies all the artifacts that we need -->
   <repositories>
     <repository>
       <id>repo.jenkins-ci.org</id>
-      <url>http://repo.jenkins-ci.org/public/</url>
+      <url>https://repo.jenkins-ci.org/public/</url>
     </repository>
   </repositories>
 
   <pluginRepositories>
     <pluginRepository>
       <id>repo.jenkins-ci.org</id>
-      <url>http://repo.jenkins-ci.org/public/</url>
+      <url>https://repo.jenkins-ci.org/public/</url>
     </pluginRepository>
   </pluginRepositories>
 
   <scm>
     <connection>scm:git:git://github.com/jenkinsci/${project.artifactId}-plugin.git</connection>
     <developerConnection>scm:git:git@github.com:jenkinsci/${project.artifactId}-plugin.git</developerConnection>
-    <url>http://github.com/jenkinsci/${project.artifactId}-plugin</url>
+    <url>https://github.com/jenkinsci/${project.artifactId}-plugin</url>
     <tag>HEAD</tag>
   </scm>
 
