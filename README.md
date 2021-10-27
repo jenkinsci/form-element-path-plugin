@@ -26,11 +26,3 @@ need XPath-like expression.
 
 Use JavaScript DOM inspector in your browser to pick up 
 INPUT/BUTTON/SELECT elements, and look for the `path` attribute.
-
-# Compatibility
-
-This plugin works with 1.424 and later. When you interact with form and
-cause DOM changes, you can call the `recomputeFormElementPath()` function
-from JavaScript to recompute Path to reflect DOM changes.
-
-With Jenkins 1.452 and later, this explicit invocation is unnecessary.
