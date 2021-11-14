@@ -100,11 +100,20 @@ Behaviour.addLoadEvent(function(){
             if(type==null)  type="";
             switch(type.toLowerCase()) {
             case "button":
-                p = findParent(e);
-                var s = $(e.parentNode.parentNode); // YUI's surrounding <SPAN> that has interesting classes
+                var element
+                // modern buttons aren't wrapped in spans
+                if (e.classList.contains('jenkins-button')) {
+                    element = e
+                } else {
+                    p = findParent(e);
+                    element = $(e.parentNode.parentNode); // YUI's surrounding <SPAN> that has interesting classes
+                }
                 var name=null;
-                ["repeatable-add","repeatable-delete","hetero-list-add","expand-button","advanced-button","apply-button","validate-button"]._each(function (n) {
-                    if (s.hasClassName(n))    name = n;
+                ["repeatable-add","repeatable-delete","hetero-list-add","expand-button","advanced-button","apply-button","validate-button"]
+                    .forEach(function (clazz) {
+                    if (element.hasClassName(clazz)) {
+                        name = clazz;
+                    }
                 });
                 if (name==null) {
                     // backward compatibility with Jenkins < 1.473
